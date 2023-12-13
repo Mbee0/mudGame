@@ -5,13 +5,13 @@
 #include <dirent.h>
 #include <sys/stat.h>
 #include <direct.h>
+// MEGAN: C:/Users/megan/SchoolWork/GIT/final/World
+
 void scanDirectory(const char *path);
 int txtToMap(const char *filename);
 
 #define SIZE_OF_MAP 10
 int map[SIZE_OF_MAP][SIZE_OF_MAP];
-
-
 
 int main()
 {
@@ -76,8 +76,8 @@ int printMap()
 int *findNeighboringPoints(int x, int y)
 {
     static int neighbors[4];
-    //5 stands for out of bounds
-    neighbors[0] = (x - 1 >= 0) ? map[x - 1][y] : 5; 
+    // 5 stands for out of bounds
+    neighbors[0] = (x - 1 >= 0) ? map[x - 1][y] : 5;
     neighbors[1] = (x + 1 < SIZE_OF_MAP) ? map[x + 1][y] : 5;
     neighbors[2] = (y - 1 >= 0) ? map[x][y - 1] : 5;
     neighbors[3] = (y + 1 < SIZE_OF_MAP) ? map[x][y + 1] : 5;
@@ -109,8 +109,8 @@ int positionToFolder(const char *filename)
     {
         for (int j = 0; j < SIZE_OF_MAP; j++)
         {
-
-            snprintf(folderName, sizeof(folderName), "C:/Users/likapichu/Desktop/Code/2600/final/World/%c%d%d", modifier, i, j);
+            // CHANGE TO YOUR OWN PATH
+            snprintf(folderName, sizeof(folderName), "ENTER YOUR HERE /%c%d%d", modifier, i, j);
             if (_mkdir(folderName) != 0)
             {
                 perror("mkdir");
@@ -154,4 +154,3 @@ int txtToMap(const char *filename)
     positionToFolder(filename);
     return 0;
 }
-

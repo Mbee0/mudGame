@@ -4,6 +4,8 @@
 #include <sys/types.h>
 #include <dirent.h>
 
+// Megan: C:/Users/megan/SchoolWork/GIT/final/World
+
 char modifier = 'e';
 
 int x = 0;
@@ -14,12 +16,10 @@ void navigate(char *currentFolder, int deltaY, int deltaX)
     x += deltaX;
     y += deltaY;
 
-    
     char nextFolder[256];
     char parentFolder[256];
 
-    snprintf(parentFolder, sizeof(parentFolder), "C:/Users/likapichu/Desktop/Code/2600/final/World");
-
+    snprintf(parentFolder, sizeof(parentFolder), "ENTER YOUR SELF");
 
     snprintf(nextFolder, sizeof(nextFolder), "%s/%c%d%d", parentFolder, modifier, x, y);
 
@@ -60,7 +60,7 @@ int readTxt(const char *filename, int directions[4])
 int navigateWorld()
 {
     char currentFolder[256];
-    strcpy(currentFolder, "C:/Users/likapichu/Desktop/Code/2600/final/World/e00");
+    strcpy(currentFolder, "ENTER YOUR SELF/e00");
 
     while (1)
     {
@@ -85,17 +85,17 @@ int navigateWorld()
             // Move up
             navigate(currentFolder, -1, 0);
         }
-        else if (input == 's' && (directions[1] == 1 || directions[1] == 2|| directions[1] == 3))
+        else if (input == 's' && (directions[1] == 1 || directions[1] == 2 || directions[1] == 3))
         {
             // Move down
             navigate(currentFolder, 1, 0);
         }
-        else if (input == 'a' && (directions[2] == 1 || directions[2] == 2|| directions[2] == 3))
+        else if (input == 'a' && (directions[2] == 1 || directions[2] == 2 || directions[2] == 3))
         {
             // Move left
             navigate(currentFolder, 0, -1);
         }
-        else if (input == 'd' && (directions[3] == 1|| directions[3] == 2|| directions[3] == 3))
+        else if (input == 'd' && (directions[3] == 1 || directions[3] == 2 || directions[3] == 3))
         {
             // Move right
             navigate(currentFolder, 0, 1);
