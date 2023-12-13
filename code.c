@@ -110,12 +110,15 @@ int positionToFolder(const char *filename)
         for (int j = 0; j < SIZE_OF_MAP; j++)
         {
             // CHANGE TO YOUR OWN PATH
-            snprintf(folderName, sizeof(folderName), "ENTER YOUR HERE /%c%d%d", modifier, i, j);
-            if (_mkdir(folderName) != 0)
+            if (map[i][j] != 0)
             {
-                perror("mkdir");
+                snprintf(folderName, sizeof(folderName), "C:/Users/megan/SchoolWork/GIT/final/World/%c%d%d", modifier, i, j);
+                if (_mkdir(folderName) != 0)
+                {
+                    perror("mkdir");
+                }
+                createTxt(folderName, i, j);
             }
-            createTxt(folderName, i, j);
         }
     }
     return 0;
